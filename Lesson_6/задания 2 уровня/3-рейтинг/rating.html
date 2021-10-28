@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
     <style>
         i {
             font-size: 50px;
         }
+
         .golden {
             color: gold;
         }
     </style>
 </head>
+
 <body>
     <i id="first" class="fas fa-star"></i>
     <i id="second" class="fas fa-star"></i>
@@ -39,15 +44,75 @@
 
         let goldenClass = 'golden';
 
-        firstStar.addEventListener('mouseover', function() {
-            if (!firstStar.classList.contains('goldenClass')) {
-                firstStar.classList.add(goldenClass);
-            }
-        });
+        function addGoldenClass(element) {
+            if (!element.classList.contains('goldenClass')) {
+                element.classList.add(goldenClass);
+            };
 
-        firstStar.addEventListener('mouseout', function() {
-            firstStar.classList.remove(goldenClass);
-        });
+            if (element.previousElementSibling) {
+                addGoldenClass(element.previousElementSibling);
+            };
+        };
+
+        function removeGoldenClass(element) {
+            element.classList.remove(goldenClass);
+
+            if (element.previousElementSibling) {
+                removeGoldenClass(element.previousElementSibling);
+            };
+        };
+
+        firstStar.addEventListener('mouseover', function (event) {
+            addGoldenClass(event.target)
+        }
+        );
+
+        firstStar.addEventListener('mouseout', function (event) {
+            removeGoldenClass(event.target)
+        }
+        );
+
+        secondStar.addEventListener('mouseover', function (event) {
+            addGoldenClass(event.target)
+        }
+        );
+
+        secondStar.addEventListener('mouseout', function (event) {
+            removeGoldenClass(event.target)
+        }
+        );
+
+        thirdStar.addEventListener('mouseover', function (event) {
+            addGoldenClass(event.target)
+        }
+        );
+
+        thirdStar.addEventListener('mouseout', function (event) {
+            removeGoldenClass(event.target)
+        }
+        );
+
+        fourthStar.addEventListener('mouseover', function (event) {
+            addGoldenClass(event.target)
+        }
+        );
+
+        fourthStar.addEventListener('mouseout', function (event) {
+            removeGoldenClass(event.target)
+        }
+        );
+
+        fifthStar.addEventListener('mouseover', function (event) {
+            addGoldenClass(event.target)
+        }
+        );
+
+        fifthStar.addEventListener('mouseout', function (event) {
+            removeGoldenClass(event.target)
+        }
+        );
+
     </script>
 </body>
+
 </html>
