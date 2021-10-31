@@ -26,7 +26,18 @@
     -->
 
     <script>
-        
+
+        let btn = document.querySelector('button');
+        let msg = document.getElementsByClassName('message')[0];
+        let heightFalling = document.documentElement.clientHeight - msg.clientHeight;
+        let notification = new Audio('notification.mp3');
+
+        btn.addEventListener('click', function (event) {
+            notification.play();
+            msg.style.cssText = `position: initial;
+            transform: translateY(${heightFalling - 30}px);`
+        });
+
     </script>
 </body>
 
